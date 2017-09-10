@@ -1,7 +1,7 @@
 const path = require('path');
 
 const config = {
-  entry: ['babel-polyfill'],
+  entry: ['babel-polyfill', './views/Index.jsx'],
   output: {
     path: path.resolve(__dirname, 'public'),
     filename: 'bundle.js',
