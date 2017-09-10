@@ -1,5 +1,7 @@
-const express = require('express');
-const { createEngine } = require('express-react-views');
+var express = require('express');
+var routes = require('./routes');
+var user = require('./routes/user');
+var { createEngine } = require('express-react-views');
 
 const app = express();
 const port = 8000;
@@ -8,11 +10,12 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'jsx');
 app.engine('jsx', createEngine());
 
-app.get('/', (req, res, next) => {
-  res.render('index.jsx', { name: 'world' });
-});
+app.get('/', routes.index);
+app.get('/users', user.list);
 
 app.listen(
-  port,
-  () => console.log(`\uD83C\uDF0F running at http://localhost:${port}`)
+	port,
+	function(){
+		console.log("\uD83C\uDF0F running at http://localhost:8000");
+	}
 );

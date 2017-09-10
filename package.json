@@ -2,9 +2,17 @@
   "name": "my_personal_website",
   "version": "1.0.0",
   "description": "My personal website",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "NODE_PATH=./lib pm2 start app.js --watch --interpreter ./node_modules/.bin/babel-node",
+    "webpack": "webpack -wd"
+  },
+  "babel": {
+    "presets": [
+      "react",
+      "env",
+      "es2015"
+    ]
   },
   "author": "Ron Marks",
   "license": "ISC",
@@ -17,6 +25,7 @@
     "webpack": "^3.5.5"
   },
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
     "express": "^4.15.4",
     "express-react-views": "^0.10.2",
     "react": "^15.6.1",

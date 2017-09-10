@@ -1,9 +1,14 @@
-const React = require('react');
+import React from 'react';
+import Layout from './layout';
+import NetworkCanvas from '../lib/components/NetworkCanvas/Canvas.jsx';
 
-class HelloWorld extends React.Component {
+class Index extends React.Component {
   render() {
-    return <div> Hello {this.props.name} </div>;
+    return (
+    	<Layout title={this.props.title}>
+    	</Layout>
+    );
   }
 }
 
-module.exports = HelloWorld;
+export default Index;
