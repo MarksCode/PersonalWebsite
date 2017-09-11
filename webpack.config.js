@@ -5,7 +5,7 @@ const config = {
   output: {
     path: path.resolve(__dirname, 'public'),
     filename: 'bundle.js',
-    publicPath: '/'
+    publicPath: '/public'
   },
   module: {
     rules: [

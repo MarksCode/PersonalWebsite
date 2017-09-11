@@ -8,6 +8,7 @@ const port = 8000;
 
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jsx');
+app.use(express.static('public'));
 app.engine('jsx', createEngine());
 
 app.get('/', routes.index);

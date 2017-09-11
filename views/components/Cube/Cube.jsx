@@ -1,7 +1,9 @@
 import React from 'react';
 
 class Cube extends React.Component {
+
     componentDidMount() {
+        console.log("SUHHH");
         this.el.innerText = "YOYOY";
     }
 

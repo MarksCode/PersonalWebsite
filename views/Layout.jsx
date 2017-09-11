@@ -6,10 +6,10 @@ class Layout extends React.Component {
       <html>
         <head>
           <title>{this.props.title}</title>
-          <script type="text/javascript" src="/public/bundle.js"></script>
         </head>
-        <body>
+        <body> 
           {this.props.children}
+          <script type="text/javascript" src="./bundle.js"></script>
         </body>
       </html>
     );
