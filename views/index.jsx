@@ -1,13 +1,12 @@
 import React from 'react';
 import Layout from './Layout.jsx';
-import NetworkCanvas from './components/NetworkCanvas/Canvas.jsx';
-import Cube from './components/Cube/Cube.jsx';
+import PageContent from './PageContent.jsx';
 
 class Index extends React.Component {
   render() {
     return (
     	<Layout title={this.props.title}>
-            <Cube />
+            <PageContent />
     	</Layout>
     );
   }
