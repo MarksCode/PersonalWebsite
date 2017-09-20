@@ -1,4 +1,6 @@
 const path = require('path');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
 
 const config = {
   entry: ['babel-polyfill', './views/Index.jsx'],
@@ -9,9 +11,19 @@ const config = {
   },
   module: {
     rules: [
-      { test: /\.(jsx|js)$/, exclude: /node_modules/ , use: 'babel-loader' }
+      { test: /\.(jsx|js)$/, exclude: /node_modules/ , use: 'babel-loader' },
+      { 
+        test: /\.css$/,
+        use: ExtractTextPlugin.extract({
+          fallback: "style-loader",
+          use: "css-loader"
+        })
+      }
     ]
-  }
+  },
+  plugins: [
+    new ExtractTextPlugin("styles.css"),
+  ]
 };
 
 module.exports = config;

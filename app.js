@@ -6,6 +6,11 @@ var { createEngine } = require('express-react-views');
 const app = express();
 const port = 8000;
 
+require.extensions['.css'] = function() {
+    // doing nothing since it's a css!
+    return;
+};
+
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jsx');
 app.use(express.static('public'));

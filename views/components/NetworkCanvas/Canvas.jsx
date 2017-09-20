@@ -9,7 +9,6 @@ function Ball (startX, startY, startVelX, startVelY) {
         x: startVelX || Math.random() * 2 - 1,
         y: startVelY || Math.random() * 2 - 1
     };
-    console.log(this.x);
     this.update = function(canvas) {
         if (this.x > canvas.width + 50 || this.x < -50) {
             this.vel.x = -this.vel.x;
@@ -40,26 +39,21 @@ class Canvas extends React.Component {
         this.ctx = null;
         this.balls = [];
         this.state = {
-            width: '0',
-            height: '0'
+            width: '100%',
+            height: '100%'
         }
     }
 
     componentWillMount() {
-        console.log(typeof window);
         if (typeof window !== 'undefined') {
             this.updateWindowDimensions();
         }
     }
 
     componentDidMount() {
-        console.log("AYYYY");
         this.updateWindowDimensions();
         this.ctx = this.canvas.getContext('2d');
-        console.log("!@!@#!@$");
-        console.log(this.canvas.width);
-        console.log("!@!@#!@$");
-        for (let i = 0; i < this.canvas.width * this.canvas.height / (65*65); i++) {
+        for (let i = 0; i < 100; i++) {
             this.balls.push(new Ball(Math.random() * this.canvas.width, Math.random() * this.canvas.height));
         }
         this.loop();
@@ -111,12 +105,11 @@ class Canvas extends React.Component {
     }
 
     render() {
-        console.log("SUP");
         return (
             <div>
                 <canvas 
-                    width="500" 
-                    height="500"
+                    width={typeof window !== 'undefined' ? window.innerWidth : 100} 
+                    height={typeof window !== 'undefined' ? window.innerHeight : 100}
                     ref={(el) => {this.canvas = el}}>
                 </canvas>
             </div>
