@@ -67,19 +67,33 @@ CubeMap.prototype.renderMap = function(urls) {
     /* text */
     var loader = new THREE.FontLoader();
 
-    loader.load( 'gentilis_bold.typeface.json', function ( font ) {
+    loader.load( 'gentilis_bold.typeface.json',( font ) => {
 
-        var geometry = new THREE.TextGeometry( 'Hello three.js!', {
+        var geometry = new THREE.TextGeometry( 'Ron Marks', {
             font: font,
-            size: 80,
+            size: 50,
             height: 5,
             curveSegments: 12,
             bevelEnabled: true,
-            bevelThickness: 10,
-            bevelSize: 8,
-            bevelSegments: 5
+            bevelThickness: 4,
+            bevelSize: 2,
+            bevelSegments: 2
         } );
+
+        var textMaterial = new THREE.MeshPhongMaterial( 
+          { color: 0xE5DBCF, specular: 0xffffff }
+        );
+
+        var mesh = new THREE.Mesh( geometry, textMaterial );
+
+        mesh.position.set(150, 400, -100);
+        mesh.rotation.y = Math.PI;
+        // mesh.rotation.x = Math.PI;
+
+        scene.add( mesh );
+
     } );
+
 
     return { cube: cube, plane: plane, scene: scene, camera: camera };
 };
