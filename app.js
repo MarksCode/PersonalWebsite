@@ -11,6 +11,13 @@ require.extensions['.css'] = function() {
     return;
 };
 
+app.get('*.js', function(req, res, next) {
+  req.url = req.url + '.gz';
+  res.set('Content-Encoding', 'gzip');
+  res.set('Content-Type', 'text/javascript');
+  next();
+});
+
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jsx');
 app.use(express.static('public'));

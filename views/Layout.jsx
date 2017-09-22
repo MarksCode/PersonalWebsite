@@ -5,12 +5,11 @@ class Layout extends React.Component {
         return (
             <html>
             <head>
-                <title>{this.props.title}</title>
+                <title>Ron Marks</title>
                 <link rel="stylesheet" href="styles.css" />
             </head>
             <body> 
                 <div id="root">
-                    {this.props.children}
                 </div>
                 <script type="text/javascript" src="./bundle.js"></script>
             </body>

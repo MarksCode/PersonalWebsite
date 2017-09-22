@@ -1,4 +1,3 @@
-import { Promise } from 'es6-promise';
 import * as THREE from 'three';
 
 function CubeMap(){

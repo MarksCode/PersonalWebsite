@@ -1,5 +1,6 @@
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CompressionPlugin = require("compression-webpack-plugin");
 
 
 const config = {
@@ -23,6 +24,10 @@ const config = {
   },
   plugins: [
     new ExtractTextPlugin("styles.css"),
+    new CompressionPlugin({
+        asset: "[path].gz[query]",
+        test: /\.(js|jsx)$/,
+    })
   ]
 };
 
